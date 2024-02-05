@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.google.android.material.tabs.TabLayout;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -69,6 +72,21 @@ public class MainActivity extends AppCompatActivity {
         // Agrega TextWatchers a los EditText para manejar los cambios de texto.
         numero1.addTextChangedListener(new NumberTextWatcher(numero1));
         numero2.addTextChangedListener(new NumberTextWatcher(numero2));
+
+        //Obtiene el TabLayout desde el layout.
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+
+        /**
+         * Establece si el indicador de la pestaña debe estirarse para cubrir todo el ancho de la pestaña.
+         * Si se establece en true, el color del indicador se establecerá en null.
+         */
+        tabLayout.setTabIndicatorFullWidth(true);
+
+        // Selecciona el TabItem con el id 'venta' como el seleccionado por defecto.
+        TabLayout.Tab ventaTab = tabLayout.getTabAt(0); // Asume que 'venta' es el primer TabItem.
+        if (ventaTab != null) {
+            ventaTab.select();
+        }
     }
 
     /**
