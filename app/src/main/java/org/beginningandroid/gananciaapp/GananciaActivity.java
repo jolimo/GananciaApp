@@ -22,7 +22,7 @@ import java.util.Locale;
  * La clase MainActivity representa la actividad principal de la aplicación.
  * Esta clase se encarga de manejar las interacciones del usuario con la interfaz de la aplicación.
  */
-public class MainActivity extends AppCompatActivity {
+public class GananciaActivity extends AppCompatActivity {
 
     /**
      * EditText para el primer número.
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_ganancia);
 
         // Inicializa los componentes de la interfaz de usuario.
         numero1 = findViewById(R.id.valorCompra);
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         // Recupera el extra del Intent.
         int selectedTab = getIntent().getIntExtra("selected_tab", 0);
 
-        // Selecciona la pestana correspondiente.
+        // Selecciona la pestaña correspondiente.
         TabLayout.Tab tabToSelect = tabLayout.getTabAt(selectedTab);
         if (tabToSelect != null) {
             tabToSelect.select();
@@ -88,16 +88,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Añade un OnTabSelectedListener al TabLayout.
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 Intent intent;
 
-                if (tab.getPosition() == 0) { // Si la pestaña seleccionada es la primera (índice 0)
-                    intent = new Intent(MainActivity.this, GananciaActivity.class);
-                    intent.putExtra("selected_tab", 0); // Añade el extra
-                } else { // Si la pestaña seleccionada es la segunda (índice 1)
-                    intent = new Intent(MainActivity.this, GananciaActivity.class);
+                if (tab.getPosition() == 1) { // Si la pestaña seleccionada es la primera (índice 0)
+                    intent = new Intent(GananciaActivity.this, GananciaActivity.class);
                     intent.putExtra("selected_tab", 1); // Añade el extra
+                } else { // Si la pestaña seleccionada es la segunda (índice 1)
+                    intent = new Intent(GananciaActivity.this, MainActivity.class);
+                    intent.putExtra("selected_tab", 0); // Añade el extra
                 }
                 startActivity(intent);
             }
@@ -179,16 +180,16 @@ public class MainActivity extends AppCompatActivity {
         // Realiza los cálculos si los valores no están vacíos.
         if (!valor1.isEmpty() && !valor2.isEmpty()) {
             int valorCompra = Integer.parseInt(valor1);
-            int ganancia = Integer.parseInt(valor2);
+            int valorVenta = Integer.parseInt(valor2);
             double calculo;
 
             // Obtiene el RadioButton seleccionado y realiza el cálculo correspondiente.
             int selectedId = radioGroup.getCheckedRadioButtonId();
             RadioButton selectedRadioButton = findViewById(selectedId);
             if (selectedRadioButton.getText().equals("Sin IVA")) {
-                calculo = (valorCompra + ganancia) * 1.19;
+                calculo = (valorVenta/1.19) - valorCompra;
             } else {
-                calculo = ((valorCompra/1.19) + ganancia) * 1.19;
+                calculo = (valorVenta/1.19) - (valorCompra/1.19);
             }
 
             // Formatea el resultado con comas como separadores de miles y lo muestra en el TextView.
