@@ -42,6 +42,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
-        }, 800); // 800 = 0.8 segundos
+        }, 900); // 900 = 0.9 segundos
     }
 }

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context=".FragmentTwo">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/valorCompra"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="20dp"
+        android:text="Valor de Compra"
+        android:textColor="#E0E0E0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <EditText
+        android:id="@+id/valorCompra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/valorVenta"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="#E0E0E0"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/valorVenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ganancia"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="20dp"
+        android:text="Valor del cliente"
+        android:textColor="#E0E0E0"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toBottomOf="@+id/valorCompra" />
+
+    <EditText
+        android:id="@+id/ganancia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/radioGroup"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="#E0E0E0"
+        android:textSize="25dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="280dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/resultado"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/sinIva"
+            android:layout_width="135dp"
+            android:layout_height="60dp"
+            android:width="40dp"
+            android:text="Sin IVA"
+            android:textColor="#E0E0E0"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/conIva"
+            android:layout_width="135dp"
+            android:layout_height="60dp"
+            android:width="40dp"
+            android:text="Con IVA"
+            android:textColor="#E0E0E0"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/calcular"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#E0E0E0"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/calcular"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="105dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="30dp"
+        android:text="Cacular"
+        android:backgroundTint="@color/buttonColor"
+        android:textStyle="bold" />
+
+</RelativeLayout>
